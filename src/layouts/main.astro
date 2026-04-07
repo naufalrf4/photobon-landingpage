@@ -1,0 +1,79 @@
+---
+import "@/styles/global.css"
+import { Navbar } from "@/components/layout/Navbar"
+import { Footer } from "@/components/layout/Footer"
+
+export interface Props {
+  title?: string
+  description?: string
+  ogImage?: string
+  canonicalPath?: string
+}
+
+const {
+  title = "Photobon — Fotobooth Struk Pertama di Indonesia",
+  description = "Sewa fotobooth struk portabel untuk event, kafe, dan brand activation. Setup 30 menit, cetak instan, file digital inklusif.",
+  ogImage = "/og-default.jpg",
+  canonicalPath = "",
+} = Astro.props
+
+const siteUrl = "https://photobon.id"
+const canonicalUrl = `${siteUrl}${canonicalPath}`
+const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`
+---
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Primary Meta -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Photobon" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Photobon",
+      "description": description,
+      "url": siteUrl,
+      "image": ogImageUrl,
+      "telephone": "+6281234567890",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jakarta",
+        "addressCountry": "ID"
+      },
+      "areaServed": ["Jakarta", "Bogor", "Depok", "Tangerang", "Bekasi", "Bandung"],
+      "priceRange": "$$"
+    })} />
+  </head>
+  <body class="bg-pb-bg text-pb-text-primary font-body min-h-screen">
+    <Navbar client:load />
+    <slot />
+    <Footer client:load />
+  </body>
+</html>
