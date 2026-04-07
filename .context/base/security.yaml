@@ -1,0 +1,28 @@
+security_posture:
+  app_type: public static marketing site
+  auth_present: false
+  authorization_present: false
+  backend_present: false
+
+secrets_handling:
+  repo_ignored_secret_files:
+    - .env
+    - .env.production
+  runtime_secret_usage_found: false
+  notes:
+    - No env variable reads or secret-backed integrations were found in application code.
+
+data_sensitivity:
+  persistent_user_data_storage: none found
+  user_input_present:
+    - WhatsApp message composition data in src/content/contact.ts
+  notes:
+    - Contact flow currently exits to WhatsApp rather than storing submissions in-app.
+
+security_requirements:
+  - Preserve the static-site model unless a backend is explicitly introduced.
+  - If forms or APIs are added later, document validation, storage, and secret handling before implementation completes.
+  - Do not commit environment secrets or credentials.
+
+compliance_constraints:
+  - No explicit compliance framework is present in repo evidence.

@@ -1,0 +1,41 @@
+mode: init
+
+current_baseline:
+  - Repository has core Astro/React/Tailwind/shadcn foundation in place.
+  - Home route is implemented end-to-end.
+  - How-it-works, placement, and contact routes exist as page shells.
+  - Typed content for those unfinished routes is already present in src/content/.
+
+observed_milestones:
+  - milestone: Foundation and brand system established
+    status: done
+    evidence:
+      - src/layouts/main.astro
+      - src/styles/global.css
+      - src/components/layout/
+      - src/components/ui/
+  - milestone: Home page implementation completed
+    status: done
+    evidence:
+      - src/pages/index.astro
+      - src/sections/home/
+  - milestone: Secondary page content authored
+    status: done
+    evidence:
+      - src/content/how-it-works.ts
+      - src/content/placement.ts
+      - src/content/contact.ts
+  - milestone: Secondary page section implementations
+    status: pending
+    evidence:
+      - src/pages/cara-kerja.astro
+      - src/pages/penempatan.astro
+      - src/pages/kontak.astro
+      - src/sections/how-it-works/index.ts
+      - src/sections/placement/index.ts
+      - src/sections/contact/index.ts
+
+known_unknowns:
+  - Formal branch and PR workflow are not defined in repo evidence.
+  - Deployment target is not defined in repo evidence.
+  - No automated test framework has been selected.

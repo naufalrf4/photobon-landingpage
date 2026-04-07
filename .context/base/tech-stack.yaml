@@ -1,0 +1,78 @@
+project:
+  name: photobon-landing
+  version: 0.0.1
+  version_source: package.json
+
+runtime:
+  node_runtime_available: true
+  primary_package_manager: bun
+  package_manager_evidence:
+    - bun.lock
+  module_system: ESM
+
+framework:
+  site_framework:
+    name: astro
+    version: 6.1.4
+    source: package.json
+  ui_integration:
+    name: "@astrojs/react"
+    version: 5.0.3
+    source: package.json
+  rendering_model: static site generation with React islands hydrated via client:load
+
+language:
+  primary: TypeScript
+  typescript_version: 5.9.3
+  strict_mode_evidence:
+    - tsconfig.json extends astro/tsconfigs/strict
+  jsx_runtime: react-jsx
+
+styling:
+  css_framework:
+    name: tailwindcss
+    version: 4.2.1
+    source: package.json
+  vite_plugin:
+    name: "@tailwindcss/vite"
+    version: 4.2.1
+    source: package.json
+  component_primitives:
+    - name: shadcn
+      version: 4.1.2
+      source: package.json
+    - name: radix-ui
+      version: 1.4.3
+      source: package.json
+  utility_libraries:
+    - class-variance-authority@0.7.1
+    - clsx@2.1.1
+    - tailwind-merge@3.5.0
+    - tw-animate-css@1.4.0
+    - lucide-react@1.7.0
+
+content_model:
+  source: local typed TypeScript modules in src/content
+  external_cms: none found
+  server_data_layer: none found
+
+testing:
+  framework: none configured
+  evidence:
+    - no test script in package.json
+    - no test config files found
+
+tooling:
+  lint:
+    name: eslint
+    version: 9.39.4
+    source: package.json
+    config: eslint.config.js
+  format:
+    name: prettier
+    version: 3.8.1
+    source: package.json
+    config: .prettierrc
+
+path_aliases:
+  "@/*": ./src/*

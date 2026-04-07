@@ -1,0 +1,70 @@
+commands:
+  install:
+    command: bun install
+    confidence: inferred_from_lockfile
+    evidence:
+      - bun.lock
+  dev:
+    command: bun run dev
+    evidence:
+      - package.json scripts.dev
+  build:
+    command: bun run build
+    evidence:
+      - package.json scripts.build
+  preview:
+    command: bun run preview
+    evidence:
+      - package.json scripts.preview
+  lint:
+    command: bun run lint
+    evidence:
+      - package.json scripts.lint
+  format:
+    command: bun run format
+    evidence:
+      - package.json scripts.format
+  typecheck:
+    command: bun run typecheck
+    evidence:
+      - package.json scripts.typecheck
+  test:
+    command: null
+    evidence:
+      - no test script found in package.json
+
+git_process:
+  current_branch_evidence: master
+  remote_configured: false
+  commit_history_present: false
+  branch_strategy: unknown_from_repo
+  review_flow: unknown_from_repo
+  auto_commit: forbidden_by_default_for_agents
+  auto_push: forbidden_by_default_for_agents
+  push_identity: user_identity_only
+  co_authors: forbidden_unless_user_explicitly_requests
+
+quality_gates:
+  required_before_completion:
+    - lint when code changes affect linted files
+    - typecheck when TypeScript or Astro files change
+    - build when route/layout/global app behavior changes materially
+
+repo_hygiene:
+  ignored_existing_paths:
+    - dist/
+    - .astro/
+    - node_modules/
+    - .env
+    - .env.production
+  ignored_local_agent_artifacts:
+    - .sisyphus/
+    - .agent-workspace/
+    - .reviewer/
+    - *.skill
+    - .evals/
+
+ci_cd:
+  ci_config: none_found
+  deploy_target: unknown_from_repo
+  hooks: no_active_git_hooks_found

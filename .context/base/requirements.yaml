@@ -1,0 +1,49 @@
+functional_requirements:
+  - id: FR-001
+    requirement: Serve a static landing site for the Photobon brand in Indonesian.
+    evidence:
+      - src/layouts/main.astro
+      - src/content/shared.ts
+  - id: FR-002
+    requirement: Provide routed pages for home, how-it-works, placement, and contact.
+    evidence:
+      - src/pages/index.astro
+      - src/pages/cara-kerja.astro
+      - src/pages/penempatan.astro
+      - src/pages/kontak.astro
+  - id: FR-003
+    requirement: Render shared navigation and footer across pages.
+    evidence:
+      - src/layouts/main.astro
+      - src/components/layout/Navbar.tsx
+      - src/components/layout/Footer.tsx
+  - id: FR-004
+    requirement: Centralize copy and structured page content in typed local TypeScript modules.
+    evidence:
+      - src/content/home.ts
+      - src/content/how-it-works.ts
+      - src/content/placement.ts
+      - src/content/contact.ts
+      - src/content/shared.ts
+  - id: FR-005
+    requirement: Drive primary conversion through WhatsApp links and WhatsApp message generation.
+    evidence:
+      - src/content/shared.ts
+      - src/content/contact.ts
+
+quality_attributes:
+  - Use strict TypeScript-compatible patterns aligned with `astro/tsconfigs/strict`.
+  - Preserve reusable layout primitives and typed content/presentation separation.
+  - Maintain responsive navigation and mobile-friendly CTA access.
+  - Keep page metadata title and description set at the route/layout level.
+
+non_goals:
+  - Build a CMS or admin editing workflow.
+  - Add authentication or user accounts.
+  - Introduce a server API, database, or persisted form backend.
+  - Expand into checkout, booking, or payment processing without explicit product direction.
+
+forbidden_changes:
+  - Hardcode brand copy into presentation components when it already belongs in `src/content/`.
+  - Replace the current static-site model with SSR or backend dependencies without explicit authorization.
+  - Remove or rename the existing public routes without corresponding product direction.

@@ -1,0 +1,23 @@
+testing_strategy:
+  current_state: no automated test framework is configured in this repository
+  evidence:
+    - package.json has no test script
+    - no test config files found
+    - no test/spec files found
+
+required_checks_for_agent_changes:
+  - Run lint for TypeScript/TSX code changes.
+  - Run astro/type checks for Astro, TypeScript, and JSX changes.
+  - Run build when structural page/layout/styling changes could affect site output.
+
+critical_paths_to_protect:
+  - Shared layout metadata and global shell in src/layouts/main.astro
+  - Navigation and footer behavior in src/components/layout/
+  - Typed marketing content in src/content/
+  - Route availability for /, /cara-kerja, /penempatan, and /kontak
+
+exclusions:
+  - Do not claim automated test coverage that the repo does not contain.
+
+quality_gate_notes:
+  - Because there is no test harness yet, lint, typecheck, and build are the primary verification gates.
