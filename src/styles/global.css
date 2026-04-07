@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700&display=swap");
+@import "tailwindcss";
+
+/* ─── Photobon Design Tokens ─────────────────────────────────────────────── */
+
+:root {
+  /* Color palette — pure monochrome + yellow accent */
+  --pb-bg: #ffffff;
+  --pb-surface: #fafafa;
+  --pb-surface-alt: #f5f5f5;
+  --pb-accent: #facc15;
+  --pb-accent-hover: #eab308;
+  --pb-text-primary: #0a0a0a;
+  --pb-text-secondary: #404040;
+  --pb-text-muted: #a3a3a3;
+  --pb-border: #e5e5e5;
+  --pb-border-strong: #0a0a0a;
+
+  /* Dark surface — pure black tones */
+  --pb-dark: #0a0a0a;
+  --pb-dark-surface: #141414;
+  --pb-dark-text: #ffffff;
+  --pb-dark-muted: #a3a3a3;
+
+  /* Spacing / layout */
+  --pb-section-py: 3rem;
+  --pb-container-max: 1200px;
+  --pb-container-px: 1.25rem;
+  --pb-gap-card: 1rem;
+  --pb-gap-header: 1.5rem;
+}
+
+/* ─── Tailwind v4 theme mapping ──────────────────────────────────────────── */
+
+@theme inline {
+  /* Fonts */
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* Colors mapped from CSS vars */
+  --color-pb-bg: var(--pb-bg);
+  --color-pb-surface: var(--pb-surface);
+  --color-pb-surface-alt: var(--pb-surface-alt);
+  --color-pb-accent: var(--pb-accent);
+  --color-pb-accent-hover: var(--pb-accent-hover);
+  --color-pb-text-primary: var(--pb-text-primary);
+  --color-pb-text-secondary: var(--pb-text-secondary);
+  --color-pb-text-muted: var(--pb-text-muted);
+  --color-pb-border: var(--pb-border);
+  --color-pb-border-strong: var(--pb-border-strong);
+  --color-pb-dark: var(--pb-dark);
+  --color-pb-dark-surface: var(--pb-dark-surface);
+  --color-pb-dark-text: var(--pb-dark-text);
+  --color-pb-dark-muted: var(--pb-dark-muted);
+
+  /* Radius — brutalist: flat corners */
+  --radius: 0rem;
+  --radius-sm: 0rem;
+  --radius-md: 0.125rem;
+  --radius-lg: 0rem;
+}
+
+/* ─── Base styles ────────────────────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background-color: var(--pb-bg);
+    color: var(--pb-text-primary);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--pb-bg);
+    color: var(--pb-text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+  }
+}
+
+/* ─── Utility classes ────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .section-py {
+    padding-top: var(--pb-section-py);
+    padding-bottom: var(--pb-section-py);
+  }
+
+  @media (min-width: 1024px) {
+    .section-py {
+      padding-top: calc(var(--pb-section-py) * 1.5);
+      padding-bottom: calc(var(--pb-section-py) * 1.5);
+    }
+  }
+
+  .container-px {
+    padding-left: var(--pb-container-px);
+    padding-right: var(--pb-container-px);
+  }
+
+  @media (min-width: 768px) {
+    .container-px {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-px {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* ─── Receipt Signature Patterns ──────────────────────────────────────── */
+
+  .pb-receipt-divider {
+    border-top: 2px dashed var(--pb-border);
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .pb-receipt-divider-strong {
+    border-top: 2px dashed var(--pb-border-strong);
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.15;
+  }
+
+  .pb-receipt-divider-accent {
+    border-top: 2px dashed var(--pb-accent);
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.4;
+  }
+
+  /* Torn/zig-zag paper edge — top */
+  .pb-torn-edge-top {
+    mask-image: radial-gradient(circle at 8px 0, transparent 8px, black 8px);
+    mask-size: 16px 16px;
+    mask-position: bottom;
+    -webkit-mask-image: radial-gradient(
+      circle at 8px 0,
+      transparent 8px,
+      black 8px
+    );
+    -webkit-mask-size: 16px 16px;
+    -webkit-mask-position: bottom;
+  }
+
+  /* Torn/zig-zag paper edge — bottom */
+  .pb-torn-edge-bottom {
+    mask-image: radial-gradient(circle at 8px 16px, transparent 8px, black 8px);
+    mask-size: 16px 16px;
+    mask-position: top;
+    -webkit-mask-image: radial-gradient(
+      circle at 8px 16px,
+      transparent 8px,
+      black 8px
+    );
+    -webkit-mask-size: 16px 16px;
+    -webkit-mask-position: top;
+  }
+
+  /* Leader line for receipt label→value rows */
+  .pb-leader-line {
+    flex: 1;
+    margin-inline: 0.75rem;
+    border-bottom: 2px dotted var(--pb-border);
+    position: relative;
+    top: -0.25rem;
+  }
+
+  /* Receipt paper texture overlay — subtle noise */
+  .pb-paper-texture {
+    position: relative;
+  }
+
+  /* CSS barcode pattern for visual anchor */
+  .pb-barcode {
+    height: 2.5rem;
+    width: 100%;
+    max-width: 180px;
+    opacity: 0.7;
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--pb-border-strong),
+      var(--pb-border-strong) 2px,
+      transparent 2px,
+      transparent 5px,
+      var(--pb-border-strong) 5px,
+      var(--pb-border-strong) 6px,
+      transparent 6px,
+      transparent 10px,
+      var(--pb-border-strong) 10px,
+      var(--pb-border-strong) 14px,
+      transparent 14px,
+      transparent 16px
+    );
+  }
+
+  /* ─── Background Patterns ─────────────────────────────────────────────── */
+
+  .bg-pattern-dots {
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  .bg-pattern-dots-dark {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+  }
+
+  .bg-pattern-dots-light {
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  .bg-pattern-dots-subtle {
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.025) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  .bg-pattern-grid {
+    background-image:
+      linear-gradient(var(--pb-border-strong) 1px, transparent 1px),
+      linear-gradient(90deg, var(--pb-border-strong) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.04;
+  }
+
+  .bg-pattern-lines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--pb-border),
+      var(--pb-border) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+  }
+
+  /* ─── Horizontal scroll snap (mobile card strips) ────────────────────── */
+
+  .scroll-snap-x {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .scroll-snap-x::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-snap-x > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  /* ─── Micro-interaction utilities ─────────────────────────────────────── */
+
+  .hover-lift {
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .hover-glow {
+    transition: box-shadow 200ms ease;
+  }
+  .hover-glow:hover {
+    box-shadow:
+      0 0 0 3px var(--pb-accent),
+      0 4px 12px rgba(250, 204, 21, 0.15);
+  }
+
+  /* Fade-in for scroll reveal */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 500ms ease,
+      transform 500ms ease;
+  }
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Non-utility receipt patterns (pseudo-elements) ─────────────────────── */
+
+.pb-paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
