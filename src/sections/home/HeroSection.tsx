@@ -118,7 +118,12 @@ export function HeroSection({
               >
                 {content.ctaPrimaryLabel}
               </Button>
-              <Button variant="ghost" size="lg" href="/cara-kerja">
+              <Button
+                variant="ghost"
+                size="lg"
+                href="/cara-kerja"
+                className="border-white/20 text-white hover:bg-white hover:text-black"
+              >
                 <span className="flex items-center gap-2">
                   {content.ctaSecondaryLabel}
                   <ArrowRight size={16} />
@@ -195,8 +200,8 @@ export function HeroSection({
               <ReceiptRow
                 label="Kategori"
                 value="Photo Booth"
+                theme="dark"
                 className="mb-0 border-0 pb-0 text-left"
-                style={{ color: "rgba(255,255,255,0.5)" }}
               />
               <span
                 aria-hidden="true"
@@ -205,8 +210,8 @@ export function HeroSection({
               <ReceiptRow
                 label="Output"
                 value="Struk Fisik + QR"
+                theme="dark"
                 className="mb-0 hidden border-0 pb-0 sm:flex"
-                style={{ color: "rgba(255,255,255,0.5)" }}
               />
             </div>
             {/* Barcode visual anchor */}

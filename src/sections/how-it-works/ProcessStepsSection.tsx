@@ -121,7 +121,7 @@ export function ProcessStepsSection({ steps }: ProcessStepsSectionProps) {
         </div>
 
         {/* Mobile: horizontal scroll */}
-        <div className="scroll-snap-x sm:hidden">
+        <div className="flex scroll-snap-x sm:hidden">
           {steps.map((step, index) => (
             <div key={step.number} className="w-[300px]">
               <StepCard step={step} index={index} />

@@ -105,7 +105,7 @@ export function SupportSection({ support }: SupportSectionProps) {
           </div>
 
           {/* Mobile: horizontal scroll */}
-          <div className="scroll-snap-x bg-white p-4 sm:hidden">
+          <div className="flex scroll-snap-x bg-white p-4 sm:hidden">
             {support.items.map((item, index) => (
               <div key={item} className="w-[260px]">
                 <SupportCard text={item} index={index} />

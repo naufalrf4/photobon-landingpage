@@ -62,7 +62,7 @@ export function PlacementGridSection({
           <div
             role="toolbar"
             aria-label="Filter penempatan"
-            className="scroll-snap-x flex-wrap sm:flex sm:flex-wrap sm:gap-2"
+            className="flex scroll-snap-x flex-wrap sm:flex sm:flex-wrap sm:gap-2"
             style={{ scrollSnapType: "none" }}
           >
             {categories.map((cat) => {

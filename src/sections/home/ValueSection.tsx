@@ -54,7 +54,7 @@ export function ValueSection({ content }: ValueSectionProps) {
 
         {/* Mobile horizontal scroll */}
         <div className="sm:hidden">
-          <div className="scroll-snap-x">
+          <div className="flex scroll-snap-x">
             {content.items.map((item, index) => (
               <div key={item.title} className="w-[280px]">
                 <ValueCard

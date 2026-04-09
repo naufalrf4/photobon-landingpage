@@ -171,7 +171,7 @@ export function PlacementPreviewSection({
           </div>
 
           {/* Mobile: horizontal scroll for images */}
-          <div className="scroll-snap-x sm:hidden">
+          <div className="flex scroll-snap-x sm:hidden">
             {previewItems.map((item) => (
               <div key={item.id} className="w-[280px]">
                 <ImageFrame

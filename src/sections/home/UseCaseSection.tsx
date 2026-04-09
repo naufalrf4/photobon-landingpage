@@ -68,7 +68,7 @@ export function UseCaseSection({ content }: UseCaseSectionProps) {
         </div>
 
         {/* Mobile horizontal scroll */}
-        <div className="scroll-snap-x sm:hidden">
+        <div className="flex scroll-snap-x sm:hidden">
           {content.items.map((item, index) => (
             <div key={item.label} className="w-[280px]">
               <UseCaseCard
